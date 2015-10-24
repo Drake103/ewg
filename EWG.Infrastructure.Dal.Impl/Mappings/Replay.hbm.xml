@@ -1,0 +1,39 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+
+<hibernate-mapping xmlns="urn:nhibernate-mapping-2.2"
+                   namespace="EWG.Domain.Entities"
+                   assembly="EWG.Domain">
+    <class name="Replay" table="Replays">
+        <id name="Id">
+            <generator class="native" />
+        </id>
+        <property name="Title" column="title" />
+        <property name="IsNetworkMode" column="isNetworkMode" />
+        <property name="Version" column="version" />
+        <many-to-one name="GameMode" column="gameModeId" class="EWG.Domain.Entities.Dictionaries.GameMode"/>
+        <many-to-one name="GameMap" column="gameMapId" class="EWG.Domain.Entities.Dictionaries.GameMap"/>
+        <property name="MaxPlayers" column="maxPlayers" />
+        <property name="AI" column="ai" />
+        <many-to-one name="GameType" column="gameTypeId" class="EWG.Domain.Entities.Dictionaries.GameType"/>
+        <property name="Private" column="private" />
+        <property name="InitMoney" column="initMoney" />
+        <property name="ScoreLimit" column="scoreLimit" />
+        <property name="ServerName" column="serverName" />
+        <many-to-one name="VictoryCondition" column="victoryConditionId" class="EWG.Domain.Entities.Dictionaries.VictoryCondition"/>
+        <property name="NationConstraint" column="nationConstraint" />
+        <property name="ThematicConstraint" column="thematicConstraint" />
+        <property name="DateConstraint" column="dateConstraint" />
+        <property name="IncomeRate" column="incomeRate" />
+        <property name="AllowObservers" column="allowObservers" />
+        <property name="Seed" column="seed" />
+        <property name="UploadDate" column="uploadDate" />
+        <property name="Link" column="link" />
+        <property name="FileHash" column="fileHash" />
+        <property name="DownloadsCounter" column="downloadsCounter" />
+
+        <bag name="Players" table="Players" cascade="all-delete-orphan">
+            <key column="replayId" />
+            <one-to-many class="EWG.Domain.Entities.Player" />
+        </bag>
+    </class>
+</hibernate-mapping>

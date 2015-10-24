@@ -1,0 +1,30 @@
+﻿@model EWG.Frontend.ViewModels.SessionViewModel
+
+@{
+    Layout = "~/Views/Shared/_LayoutBase.cshtml";
+}
+
+<div class="container" style="height: 100%;">
+    @using (Html.BeginForm("Create", "Session", FormMethod.Post, new {@class = "form-signin"}))
+    {
+        <div class="form-group">
+            @Html.LabelFor(x => x.Email)
+            @Html.TextBoxFor(x => x.Email, new {@class = "form-control", placeholder = "E-mail"})
+            @Html.ValidationMessageFor(x => x.Email)
+        </div>
+
+        <div class="form-group">
+            @Html.LabelFor(x => x.Password)
+            @Html.PasswordFor(x => x.Password, new {@class = "form-control", placeholder = "Password"})
+            @Html.ValidationMessageFor(x => x.Password)
+        </div>
+
+        @Html.ValidationSummary(true)
+
+        <div>
+            <button type="submit" class="btn btn-primary btn-block">Log In</button>
+        </div>
+
+        @Html.Hidden("ReturnUrl", Model.ReturnUrl)
+    }
+</div>

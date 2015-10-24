@@ -1,0 +1,122 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="12.0" DefaultTargets="Build" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <Import Project="$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props" Condition="Exists('$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props')" />
+  <PropertyGroup>
+    <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
+    <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
+    <ProjectGuid>{0343ECAE-6443-418A-833B-1BC192C77331}</ProjectGuid>
+    <OutputType>Library</OutputType>
+    <AppDesignerFolder>Properties</AppDesignerFolder>
+    <RootNamespace>EWG.Infrastructure.Services.Impl.Tests</RootNamespace>
+    <AssemblyName>EWG.Infrastructure.Services.Impl.Tests</AssemblyName>
+    <TargetFrameworkVersion>v4.0</TargetFrameworkVersion>
+    <FileAlignment>512</FileAlignment>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
+    <DebugSymbols>true</DebugSymbols>
+    <DebugType>full</DebugType>
+    <Optimize>false</Optimize>
+    <OutputPath>bin\Debug\</OutputPath>
+    <DefineConstants>DEBUG;TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
+    <DebugType>pdbonly</DebugType>
+    <Optimize>true</Optimize>
+    <OutputPath>bin\Release\</OutputPath>
+    <DefineConstants>TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <ItemGroup>
+    <Reference Include="Autofac">
+      <HintPath>..\packages\Autofac.3.5.2\lib\net40\Autofac.dll</HintPath>
+    </Reference>
+    <Reference Include="Iesi.Collections">
+      <HintPath>..\packages\Iesi.Collections.4.0.0.4000\lib\net40\Iesi.Collections.dll</HintPath>
+    </Reference>
+    <Reference Include="NHibernate, Version=4.0.0.4000, Culture=neutral, PublicKeyToken=aa95f207798dfdb4, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>..\packages\NHibernate.4.0.3.4000\lib\net40\NHibernate.dll</HintPath>
+    </Reference>
+    <Reference Include="nunit.framework">
+      <HintPath>..\packages\NUnit.2.6.4\lib\nunit.framework.dll</HintPath>
+    </Reference>
+    <Reference Include="System" />
+    <Reference Include="System.Core" />
+    <Reference Include="System.Xml.Linq" />
+    <Reference Include="System.Data.DataSetExtensions" />
+    <Reference Include="Microsoft.CSharp" />
+    <Reference Include="System.Data" />
+    <Reference Include="System.Xml" />
+  </ItemGroup>
+  <ItemGroup>
+    <Compile Include="ReplayParsing\ReplayParserTest.cs" />
+    <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="ReplayParsing\ReplayParserTestResources.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>ReplayParserTestResources.resx</DependentUpon>
+    </Compile>
+    <Compile Include="Replays\ReplayServiceFuncTests.cs" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="app.config" />
+    <None Include="packages.config" />
+    <None Include="ReplayParsing\SampleData\3v3_Tourney_Viteska_Brigada_B5P.wargamerpl2" />
+    <None Include="ReplayParsing\SampleData\DDR_Elite_armor_push.wargamerpl2" />
+    <None Include="ReplayParsing\SampleData\DuroSVK_vs_HeiligeHopfastauern_rematch.wargamerpl2" />
+    <None Include="ReplayParsing\SampleData\Eco_Tourney_Firestarter_vs_Duro_Game_1.wargamerpl2" />
+    <None Include="ReplayParsing\SampleData\Eco_Tourney_Firestarter_vs_Duro_Game_2.wargamerpl2" />
+    <None Include="ReplayParsing\SampleData\north_vs_duro.wargamerpl2" />
+    <None Include="ReplayParsing\SampleData\NortTA_vs_Demolitionmech.wargamerpl2" />
+    <None Include="ReplayParsing\SampleData\Steel_Balalaika_vs_We_suck_at_wargame_3vs3.wargamerpl2" />
+    <None Include="ReplayParsing\SampleData\WRG_B5P_vs_1144_Tough_Jungle.wargamerpl2" />
+  </ItemGroup>
+  <ItemGroup>
+    <EmbeddedResource Include="ReplayParsing\ReplayParserTestResources.resx">
+      <Generator>ResXFileCodeGenerator</Generator>
+      <LastGenOutput>ReplayParserTestResources.Designer.cs</LastGenOutput>
+    </EmbeddedResource>
+  </ItemGroup>
+  <ItemGroup>
+    <ProjectReference Include="..\EWG.DependencyResolver\EWG.DependencyResolver.csproj">
+      <Project>{29CC023F-6D02-4391-A087-01CA445022DB}</Project>
+      <Name>EWG.DependencyResolver</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\EWG.Domain\EWG.Domain.csproj">
+      <Project>{C2737609-04D3-4791-9FFF-5087AB6B9B92}</Project>
+      <Name>EWG.Domain</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\EWG.Infrastructure.Dal\EWG.Infrastructure.Dal.csproj">
+      <Project>{E2B19549-4EB7-4D37-AEF5-9C3B42DFB5B5}</Project>
+      <Name>EWG.Infrastructure.Dal</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\EWG.Infrastructure.Services.Impl\EWG.Infrastructure.Services.Impl.csproj">
+      <Project>{A225FA86-DF24-4973-B78A-0C73AC8B3C1F}</Project>
+      <Name>EWG.Infrastructure.Services.Impl</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\EWG.Infrastructure.Services\EWG.Infrastructure.Services.csproj">
+      <Project>{244F4150-DDE7-4DD7-ACAF-303193A2F357}</Project>
+      <Name>EWG.Infrastructure.Services</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\EWG.Shared.Dto\EWG.Shared.Dto.csproj">
+      <Project>{60EFFB09-EAF0-4563-94FA-348C0DD85AF2}</Project>
+      <Name>EWG.Shared.Dto</Name>
+    </ProjectReference>
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="test.hibernate.cfg.xml">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
+  </ItemGroup>
+  <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
+  <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
+       Other similar extension points exist, see Microsoft.Common.targets.
+  <Target Name="BeforeBuild">
+  </Target>
+  <Target Name="AfterBuild">
+  </Target>
+  -->
+</Project>

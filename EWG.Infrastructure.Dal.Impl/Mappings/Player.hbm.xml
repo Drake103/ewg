@@ -1,0 +1,31 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+
+<hibernate-mapping xmlns="urn:nhibernate-mapping-2.2"
+                   namespace="EWG.Domain.Entities"
+                   assembly="EWG.Domain">
+    <class name="Player" table="Players">
+        <id name="Id">
+            <generator class="native" />
+        </id>
+
+        <many-to-one name="PlayerUser" column="playerUserId" class="EWG.Domain.Entities.PlayerUser"/>
+        <property name="PlayerElo" column="playerElo" />
+        <property name="PlayerRank" column="playerRank" />
+        <property name="PlayerLevel" column="playerLevel" />
+        <property name="PlayerName" column="playerName" />
+        <property name="PlayerTeamName" column="playerTeamName" />
+        <property name="PlayerAvatar" column="playerAvatar" />
+        <property name="PlayerIALevel" column="playerIaLevel" />
+        <property name="PlayerReady" column="playerReady" />
+        <property name="PlayerDeckName" column="playerDeckName" />
+        <property name="PlayerDeckContent" column="playerDeckContent" />
+        <property name="PlayerAlliance" column="playerAlliance" />
+        <property name="PlayerIsEnteredInLobby" column="playerIsEnteredInLobby" />
+        <property name="PlayerScoreLimit" column="playerScoreLimit" />
+        <property name="PlayerIncomeRate" column="playerIncomeRate" />
+        
+        <property name="PlayerNumber" column="playerNumber" />
+        <many-to-one name="Replay" column="replayId" class="EWG.Domain.Entities.Replay"/>
+        
+    </class>
+</hibernate-mapping>

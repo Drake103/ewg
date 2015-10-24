@@ -1,0 +1,16 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+
+<hibernate-mapping xmlns="urn:nhibernate-mapping-2.2"
+                   namespace="EWG.Domain.Entities.Security"
+                   assembly="EWG.Domain">
+    <class name="IdentityUser" table="IdentityUsers">
+        <id name="Id">
+            <generator class="native" />
+        </id>
+
+        <property name="Email" column="email" />
+        <property name="Username" column="username" />
+        <property name="HashedPassword" column="hashedPassword" />
+
+    </class>
+</hibernate-mapping>

@@ -1,0 +1,87 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="12.0" DefaultTargets="Build" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <Import Project="$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props" Condition="Exists('$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props')" />
+  <PropertyGroup>
+    <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
+    <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
+    <ProjectGuid>{29CC023F-6D02-4391-A087-01CA445022DB}</ProjectGuid>
+    <OutputType>Library</OutputType>
+    <AppDesignerFolder>Properties</AppDesignerFolder>
+    <RootNamespace>EWG.DependencyResolver</RootNamespace>
+    <AssemblyName>EWG.DependencyResolver</AssemblyName>
+    <TargetFrameworkVersion>v4.0</TargetFrameworkVersion>
+    <FileAlignment>512</FileAlignment>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
+    <DebugSymbols>true</DebugSymbols>
+    <DebugType>full</DebugType>
+    <Optimize>false</Optimize>
+    <OutputPath>bin\Debug\</OutputPath>
+    <DefineConstants>DEBUG;TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
+    <DebugType>pdbonly</DebugType>
+    <Optimize>true</Optimize>
+    <OutputPath>bin\Release\</OutputPath>
+    <DefineConstants>TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <ItemGroup>
+    <Reference Include="Autofac">
+      <HintPath>..\packages\Autofac.3.5.2\lib\net40\Autofac.dll</HintPath>
+    </Reference>
+    <Reference Include="Autofac.Integration.Mvc">
+      <HintPath>..\packages\Autofac.Mvc4.3.1.0\lib\net40\Autofac.Integration.Mvc.dll</HintPath>
+    </Reference>
+    <Reference Include="System" />
+    <Reference Include="System.Core" />
+    <Reference Include="System.Web.Mvc, Version=4.0.0.1, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL" />
+    <Reference Include="System.Xml.Linq" />
+    <Reference Include="System.Data.DataSetExtensions" />
+    <Reference Include="Microsoft.CSharp" />
+    <Reference Include="System.Data" />
+    <Reference Include="System.Xml" />
+  </ItemGroup>
+  <ItemGroup>
+    <Compile Include="AutofacContainerBuilderForTests.cs" />
+    <Compile Include="AutofacContainerBuilder.cs" />
+    <Compile Include="Properties\AssemblyInfo.cs" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="app.config" />
+    <None Include="packages.config" />
+  </ItemGroup>
+  <ItemGroup>
+    <ProjectReference Include="..\EWG.Domain\EWG.Domain.csproj">
+      <Project>{c2737609-04d3-4791-9fff-5087ab6b9b92}</Project>
+      <Name>EWG.Domain</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\EWG.Infrastructure.Dal.Impl\EWG.Infrastructure.Dal.Impl.csproj">
+      <Project>{76406E56-8D53-4CC7-9B7B-AB5D98ECBA33}</Project>
+      <Name>EWG.Infrastructure.Dal.Impl</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\EWG.Infrastructure.Dal\EWG.Infrastructure.Dal.csproj">
+      <Project>{E2B19549-4EB7-4D37-AEF5-9C3B42DFB5B5}</Project>
+      <Name>EWG.Infrastructure.Dal</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\EWG.Infrastructure.Services.Impl\EWG.Infrastructure.Services.Impl.csproj">
+      <Project>{A225FA86-DF24-4973-B78A-0C73AC8B3C1F}</Project>
+      <Name>EWG.Infrastructure.Services.Impl</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\EWG.Infrastructure.Services\EWG.Infrastructure.Services.csproj">
+      <Project>{244F4150-DDE7-4DD7-ACAF-303193A2F357}</Project>
+      <Name>EWG.Infrastructure.Services</Name>
+    </ProjectReference>
+  </ItemGroup>
+  <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
+  <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
+       Other similar extension points exist, see Microsoft.Common.targets.
+  <Target Name="BeforeBuild">
+  </Target>
+  <Target Name="AfterBuild">
+  </Target>
+  -->
+</Project>

@@ -1,0 +1,11 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+
+<hibernate-mapping xmlns="urn:nhibernate-mapping-2.2"
+                   namespace="EWG.Domain.Entities.Dictionaries"
+                   assembly="EWG.Domain">
+
+    <subclass extends="EWG.Domain.Entities.Dictionaries.GenericDictionaryItem"
+              discriminator-value="GameType"
+              name="GameType">
+    </subclass>
+</hibernate-mapping>
