@@ -1,7 +1,7 @@
 ﻿
 Microsoft Visual Studio Solution File, Format Version 12.00
 # Visual Studio 2013
-VisualStudioVersion = 12.0.31101.0
+VisualStudioVersion = 12.0.40629.0
 MinimumVisualStudioVersion = 10.0.40219.1
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "EWG.Frontend", "EWG.Frontend\EWG.Frontend.csproj", "{1619F147-3A51-4F34-9675-566E2BBF71E6}"
 EndProject
@@ -26,6 +26,8 @@ EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "EWG.Infrastructure.Dal.Impl.Tests", "EWG.Infrastructure.Dal.Impl.Tests\EWG.Infrastructure.Dal.Impl.Tests.csproj", "{BDE99E28-3A73-4AF4-9E8F-2E63B4B99929}"
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "EWG.Frontend.Security", "EWG.Frontend.Security\EWG.Frontend.Security.csproj", "{BEA55732-F6B9-4D99-AD61-61B4ECC3F5E6}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "EWG.Web", "EWG.Web\EWG.Web.csproj", "{8FF74820-9C36-4797-8044-51CE781CB971}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -81,6 +83,10 @@ Global
 		{BEA55732-F6B9-4D99-AD61-61B4ECC3F5E6}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{BEA55732-F6B9-4D99-AD61-61B4ECC3F5E6}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{BEA55732-F6B9-4D99-AD61-61B4ECC3F5E6}.Release|Any CPU.Build.0 = Release|Any CPU
+		{8FF74820-9C36-4797-8044-51CE781CB971}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{8FF74820-9C36-4797-8044-51CE781CB971}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{8FF74820-9C36-4797-8044-51CE781CB971}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{8FF74820-9C36-4797-8044-51CE781CB971}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
