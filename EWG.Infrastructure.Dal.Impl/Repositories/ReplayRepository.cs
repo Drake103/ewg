@@ -46,6 +46,11 @@ namespace EWG.Infrastructure.Dal.Impl.Repositories
             return Fetch(query, pagingInfo);
         }
 
+        public Replay GetByHash(Guid fileHash)
+        {
+            return _crud.Get().SingleOrDefault(x => x.FileHash == fileHash);
+        }
+
         public ReplayCardDto GetReplayCard(int replayId)
         {
             var query = from replay in _crud.Get()

@@ -56,34 +56,22 @@ namespace EWG.Infrastructure.Services.Impl.ReplayParsing
 
             if (replay.GameMode == null)
             {
-                throw new Exception(string.Format(
-                    "Game mode not found ('{0}')",
-                    replayParsedDto.GameMode)
-                    );
+                replay.GameMode = _gameModeRepository.CreateByPublicCode(replayParsedDto.GameMode);
             }
 
             if (replay.GameMap == null)
             {
-                throw new Exception(string.Format(
-                    "Game map not found ('{0}')",
-                    replayParsedDto.Map)
-                    );
+                replay.GameMap = _gameMapRepository.CreateByPublicCode(replayParsedDto.Map);
             }
 
             if (replay.GameType == null)
             {
-                throw new Exception(string.Format(
-                    "Game type not found ('{0}')",
-                    replayParsedDto.GameType)
-                    );
+                replay.GameType = _gameTypeRepository.CreateByPublicCode(replayParsedDto.GameType);
             }
 
             if (replay.VictoryCondition == null)
             {
-                throw new Exception(
-                    string.Format("Victory condition not found  ('{0}')",
-                    replayParsedDto.VictoryCond)
-                    );
+                replay.VictoryCondition = _victoryConditionRepository.CreateByPublicCode(replayParsedDto.VictoryCond);
             }
 
             replay.Players = new List<Player>();

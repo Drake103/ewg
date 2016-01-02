@@ -11,7 +11,6 @@ using Ionic.Zip;
 
 namespace EWG.Web.Controllers
 {
-    [AllowCrossSiteJson]
     public class ReplaysController : Controller
     {
         private readonly IReplayService _replayService;
@@ -98,16 +97,10 @@ namespace EWG.Web.Controllers
 
                 var replay = _replayService.SaveReplay(file.InputStream, randomFilename);
 
+                var hash = replay.FileHash;
+
                 var path = Path.Combine(Server.MapPath("~/App_Data/replays"), randomFilename);
                 file.SaveAs(path);
-
-                string replayToken = string.Empty;
-
-                if (HttpContext.Session != null)
-                {
-                    var hashedReplaySeed = PasswordHasher.Hash(replay.Seed);
-                    HttpContext.Session["replay" + replay.Id] = replayToken = hashedReplaySeed.Hash;
-                }
 
                 return new JsonResult
                 {
@@ -115,7 +108,7 @@ namespace EWG.Web.Controllers
                     {
                         replayId = replay.Id,
                         success = true,
-                        token = replayToken
+                        token = hash
                     }
                 };
             }
@@ -134,19 +127,10 @@ namespace EWG.Web.Controllers
         }
 
         [HttpPost]
-        public JsonResult SetTitle(int replayId, string token, string newTitle)
+        public JsonResult SetTitle(int replayId, Guid token, string newTitle)
         {
-            if (HttpContext.Session == null) return Json(new {});
-
-            var replayToken = HttpContext.Session["replay" + replayId];
-            var tokenString = replayToken as string;
-            if (replayToken == null || tokenString != token)
-            {
-                return Json(new {});
-            }
-
-            var replay = _replayRepository.GetById(replayId);
-            if(replay == null) throw new NotSupportedException();
+            var replay = _replayRepository.GetByHash(token);
+            if (replay == null) return Json(new {});
 
             replay.Title = newTitle;
             _replayRepository.Save(replay);

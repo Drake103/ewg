@@ -1,4 +1,5 @@
-﻿using System.Web;
+﻿using System.Linq;
+using System.Web;
 using System.Web.Http;
 using System.Web.Mvc;
 using System.Web.Routing;
@@ -22,11 +23,26 @@ namespace EWG.Web
             IocConfiguration();
         }
 
+        protected void Application_BeginRequest()
+        {
+            var res = HttpContext.Current.Response;
+            var req = HttpContext.Current.Request;
+            res.AddHeader("Access-Control-Allow-Methods", "POST, PUT, OPTIONS");
+            res.AddHeader("Access-Control-Allow-Origin", "*");
+            res.AddHeader("Access-Control-Allow-Headers", "Content-Type");
+
+            if (req.HttpMethod == "OPTIONS")
+            {
+                res.StatusCode = 200;
+                res.Flush();
+            }
+        }
+
         private void IocConfiguration()
         {
             var builder = new AutofacContainerBuilder(null).Get();
 
-            builder.RegisterControllers(typeof(ReplaysController).Assembly);
+            builder.RegisterControllers(typeof (ReplaysController).Assembly);
 
             RegisterSecurity(builder);
 
